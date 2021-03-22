@@ -21,7 +21,7 @@ RUN apt-get update
 WORKDIR /home
 
 RUN wget --no-check-certificate https://github.com/s-andrews/FastQC/archive/refs/tags/v${FASTQC_VERSION}.zip
-RUN unzip ${ASTQC_VERSION}.zip
+RUN unzip v${FASTQC_VERSION}.zip
 WORKDIR /home/FastQC
 RUN chmod 755 fastqc
 RUN ln -s /home/FastQC/fastqc /usr/local/bin/fastqc
