@@ -21,12 +21,12 @@ RUN apt-get update
 WORKDIR /home
 
 RUN wget --no-check-certificate https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v${FASTQC_VERSION}.zip
-RUN unzip v${FASTQC_VERSION}.zip
-WORKDIR /home/FastQC-${FASTQC_VERSION}
+RUN unzip fastqc_v${FASTQC_VERSION}.zip
+WORKDIR /home/FastQC
 RUN chmod 755 ./fastqc
-RUN ln -s /home/FastQC-${FASTQC_VERSION}/fastqc /usr/local/bin/fastqc
+RUN ln -s /home/FastQC/fastqc /usr/local/bin/fastqc
 
-ENV PATH /home/FastQC-${FASTQC_VERSION}/:${PATH}
+ENV PATH /home/FastQC/:${PATH}
 ENV LD_LIBRARY_PATH "/usr/local/lib:${LD_LIBRARY_PATH}"
 
 RUN echo "export PATH=$PATH" > /etc/environment
